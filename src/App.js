@@ -68,15 +68,18 @@ function App() {
 
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [disable, setDisable] = useState([]);
 
   let addToCart = (obj) => {
     setCart([...cart, obj]);
     setTotal(total + obj.price);
+    setDisable(...disable, obj.id)
   };
 
   let removeCart = (obj) => {
     setCart(cart.filter((item) => item.id !== obj.id));
     setTotal(total - obj.price);
+    setDisable(disable.filter((item) => item !== obj.id))
   };
 
   return (
@@ -110,7 +113,8 @@ function App() {
           <div className="col-lg-9">
             <div className="row">
               {purchaseItems.map((obj) => {
-                return <Shop items={obj} handleCart={addToCart}></Shop>;
+                return <Shop items={obj} handleCart={addToCart}
+                disableState={disable}></Shop>;
               })}
             </div>
           </div>
