@@ -1,8 +1,11 @@
+import Star from "./star.js";
+
 export default function Shop(props) {
   let isDisabled = props.disableState.includes(props.items.id);
+  let rating = props.items.rating;
   return (
     <>
-      <div className="col-lg-4 col-md-6 mb-4">
+      <div className="col-lg-4 col-md-6 mb-4 my-5">
         <div className="card h-100">
           <a href="public\index.html">
             <img className="card-img-top" src={props.items.imgLink} alt="" />
@@ -17,9 +20,7 @@ export default function Shop(props) {
             <p className="card-text"> {props.items.description} </p>
           </div>
           <div className="card-footer">
-            <small className="text-muted">
-              &#9733; &#9733; &#9733; &#9733; &#9734;
-            </small>
+            <Star ratingStar={rating}></Star>
             <span>
               <button
                 className="btn btn-primary"

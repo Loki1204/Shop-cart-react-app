@@ -12,7 +12,7 @@ function App() {
       price: 299,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-      rating: 4.5,
+      rating: 2,
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ function App() {
       price: 199,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-      rating: 3.8,
+      rating: 4,
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ function App() {
       price: 99,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-      rating: 4.2,
+      rating: 3,
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ function App() {
       price: 999,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-      rating: 4,
+      rating: 1,
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ function App() {
       price: 599,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-      rating: 3.9,
+      rating: 4,
     },
     {
       id: 6,
@@ -62,7 +62,7 @@ function App() {
       price: 399,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-      rating: 4.6,
+      rating: 2,
     },
   ];
 
@@ -73,7 +73,7 @@ function App() {
   let addToCart = (obj) => {
     setCart([...cart, obj]);
     setTotal(total + obj.price);
-    setDisable(...disable, obj.id)
+    setDisable([...disable, obj.id])
   };
 
   let removeCart = (obj) => {
@@ -86,8 +86,8 @@ function App() {
     <>
       <div className="container">
         <div className="row">
-          <div className="col-lg-3">
-            <h1 className="my-4">Shop Name</h1>
+          <div className="col-md-3">
+            <h4 className="my-4">Shopping cart</h4>
             <div className="list-group">
               {cart.map((obj) => {
                 return (
@@ -108,9 +108,9 @@ function App() {
                 );
               })}
             </div>
-            <h3>Total - ₹{total}</h3>
+            <h4>Total - ₹{total}</h4>
           </div>
-          <div className="col-lg-9">
+          <div className="col-md-9">
             <div className="row">
               {purchaseItems.map((obj) => {
                 return <Shop items={obj} handleCart={addToCart}
